@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/base64.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/register.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <form method="post" target="{{url_for('auth.register_webauthn_user')}}" onsubmit="webauthnCredentialCreate(event)">
+    <input type="hidden" id="webauthnRegistrationURL" value="{{url_for('auth.start_webauthn_registration')}}">
+    <label for="email">Email</label>
+    <input name="email" id="email" type="email" minlength="{{config['MIN_USERNAME_LEN']}}" maxlength="{{config['MAX_FIELD_LEN']}}" required>
+    <label for="username">Username</label>
+    <input name="username" id="username" minlength="{{config['MIN_USERNAME_LEN']}}" maxlength="{{config['MAX_FIELD_LEN']}}" required>
+    <label for="displayName">Display Name</label>
+    <input name="displayName" id="displayName" minlength="{{config['MIN_USERNAME_LEN']}}" maxlength="{{config['MAX_FIELD_LEN']}}" required>
+    <label for="password">Password 
+        <a href="{{ url_for('auth.about_passwords')}}">
+        (optional but recommended)
+        </a>
+    </label>
+    <input type="password" name="password" id="password" maxlength="{{config['MAX_FIELD_LEN']}}">
+    <label for="webauthn_registration">A webauthn compatible authenticator is required</label>
+    <input type="submit" id="webauthn_registration" value="Register with a WebAuthn capable device">
+  </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Create Password {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" action="{{url_for('plaintext_passwords.create_password')}}">
+    <label for="domain">Domain</label>
+    <input name="domain" id="domain" required>
+	<label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password">
+    <label for="confirm">Confirm</label>
+    <input type="password" name="confirm" id="confirm">
+    <input type="submit" value="Create New Password">
+  </form>
+  <a class="backButton" href="{{url_for('plaintext_passwords.index')}}" >Back to Main Page</a>
+{% endblock %}

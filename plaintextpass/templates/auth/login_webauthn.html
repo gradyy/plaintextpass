@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Login - webauthn{% endblock %}</h1>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/base64.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/login.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+  <div>
+    <h2> Authenticate with a U2F or WebAuthn device</h2>
+  </div>
+  <form method="post" target="{{url_for('auth.authenticate_webauthn_user')}}" onsubmit="webauthnAuthenticateRequest(event)">
+    <input type="hidden" id="webauthnAuthenticationURL" value="{{url_for('auth.start_webauthn_authenticate')}}">
+    <label for="username">Welcome {{username}}</label>
+    <input type="hidden" name="username" id="username" value="{{username}}" disabled>
+    <label for="webauthn_registration">click to authenticate with WebAuthn</label>
+    <input type="submit" id="webauthn_registration" value="Authenticate">
+  </form>
+  <input type="button" class="backButton" id="back" value="Go Back" onclick="window.location = window.location;">
+{% endblock %}

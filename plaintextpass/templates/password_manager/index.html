@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} Passwords {{username}} {% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/passwordManager.js') }}"></script>
+{% endblock %}
+
+{% block header %}
+  <h1>Your Saved Passwords</h1>
+{% endblock %}
+
+{% block content %}
+<a href="{{url_for('plaintext_passwords.create_password')}}">Create New Password</a>
+
+<table>
+  <thead>
+    <tr>
+      <td> Domain </td>
+      <td> Username </td>
+      <td> Password (click to toggle)</td>
+      <td> Edit </td>
+      <td> Delete </td>
+    </tr>
+  </thead>
+  <tbody>
+    {% for password in user_passwords %}
+    <tr>
+      <td> {{password.domain}} </td>
+      <td> {{password.username}} </td>
+      <td>
+        <input type="password" name="password" id="password" value="{{password.password}}"> </td>
+      <td>
+        <a href="{{url_for('plaintext_passwords.update_password', password_id = password.password_id)}}" >Edit</a> </td>
+      <td>
+        <a href="{{url_for('plaintext_passwords.delete_password', password_id = password.password_id)}}" >Delete</a> </td>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

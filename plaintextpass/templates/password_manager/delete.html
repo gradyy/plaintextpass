@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Delete Password {% endblock %}</h1>
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/passwordManager.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+
+  <form method="post" action="{{url_for('plaintext_passwords.delete_password', password_id = password_id)}}">
+    <table>
+      <thead>
+        <tr>
+          <td> Domain </td>
+          <td> Username </td>
+          <td> Password (click to toggle)</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td> {{domain}} </td>
+          <td> {{username}} </td>
+          <td>
+            <input type="password" name="password" id="password" value="{{password}}"> </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <label >Are you sure?
+      <input type="submit" value="Delete">
+    </label>
+  </form>
+  <input type="button" class="backButton" id="back" value="Go Back" onclick="window.location = {{url_for('plaintext_passwords.index')}}">
+{% endblock %}

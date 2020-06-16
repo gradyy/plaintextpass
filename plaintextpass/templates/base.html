@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<head>
+<title>{% block title %}{% endblock %} - Plaintextpass</title>
+    <nav>
+      <h1>Plaintextpass</h1>
+      <ul>
+        {% if current_user.is_authenticated %}
+          <li><span>Welcome {{ current_user.display_name }}</span>
+          <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+        {% else %}
+          <li><a href="{{ url_for('auth.register') }}">Register</a>
+          <li><a href="{{ url_for('auth.login') }}">Log In</a>
+        {% endif %}
+      </ul>
+    </nav>
+    {% block scripts %}{% endblock %}
+</head>
+<body>
+<section class="content">
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
+</body>
+</html>
+
