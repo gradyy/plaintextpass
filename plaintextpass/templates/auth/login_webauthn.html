@@ -11,12 +11,9 @@
 {% endblock %}
 
 {% block content %}
-  <div>
-    <h2> Authenticate with a U2F or WebAuthn device</h2>
-  </div>
+  <h2> Welcome {{username}} - Authenticate with a U2F or WebAuthn device</h2>
   <form method="post" target="{{url_for('auth.authenticate_webauthn_user')}}" onsubmit="webauthnAuthenticateRequest(event)">
     <input type="hidden" id="webauthnAuthenticationURL" value="{{url_for('auth.start_webauthn_authenticate')}}">
-    <label for="username">Welcome {{username}}</label>
     <input type="hidden" name="username" id="username" value="{{username}}" disabled>
     <label for="webauthn_registration">click to authenticate with WebAuthn</label>
     <input type="submit" id="webauthn_registration" value="Authenticate">

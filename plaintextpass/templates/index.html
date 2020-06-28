@@ -7,11 +7,24 @@
 
 
 {% block header %}
-<p class=""> Plaintextpass is the only password manager that stores your passwords in plaintext. </p>
-
-<p class=""> 
-You must have a webauthn compatible authenticator to sign up with Plaintextpass.
-</p>
+<noscript>
+<a href="https://github.com/w3c/webauthn/issues/1255" >Webauthn requires Javascript to be enabled. </a>
+</noscript>
 {% endblock %}
 {% block content %}
+<h1>What is Plaintextpass?</h1>
+<p> Plaintextpass is the only password manager that stores your passwords in plaintext. Plaintextpass does <em> nothing </em> to keep your passwords secure. 
+</p>
+<h1>Should I use Plaintextpass?</h1>
+<p> Do you have nothing to hide and nothing to fear? 
+Are the contents of your bank account, email account, and social media accounts unimportant to you? 
+Then Plaintextpass is the right password manager for you!
+</p>
+<h1>What do I need to sign up for Plaintextpass?</h1>
+<p> Plaintextpass relies on webauthn to secure your account.
+You must use a <a href="https://caniuse.com/#search=webauthn" >webauthn compatible browser</a> such as Google Chrome, Mozilla Firefox, Microsoft Edge or Apple Safari
+to sign up with Plaintextpass.
+<p> Your computer may have a built-in webauthn authenticator. You may also use a <a href="https://www.dongleauth.info/dongles/">U2F compatible dongle</a>.
+</p>
+
 {% endblock %}

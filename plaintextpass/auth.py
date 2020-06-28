@@ -233,12 +233,12 @@ def register_success(username):
 @bp.route('/login', methods = ('GET', 'POST'))
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username', '')
+        password = request.form.get('password', '')
         session['login_username'] = username
         #note: insecure password checking
 
-        if not username_password_matches(username, password):
+        if (username == '') or not username_password_matches(username, password):
             flash('Username or password incorrect', 'Error')
             return render_template('auth/login.html')
         #redirect to next handler

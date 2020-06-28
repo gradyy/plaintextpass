@@ -11,6 +11,9 @@
 {% endblock %}
 
 {% block content %}
+  <noscript>
+  <a href="https://github.com/w3c/webauthn/issues/1255" >Webauthn requires Javascript to be enabled. </a>
+  </noscript>
   <form method="post" action="{{url_for('auth.login')}}">
     <label for="username">Username</label>
     <input name="username" id="username" required>

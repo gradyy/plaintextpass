@@ -11,6 +11,9 @@
 {% endblock %}
 
 {% block content %}
+  <noscript>
+  <a href="https://github.com/w3c/webauthn/issues/1255" >Webauthn requires Javascript to be enabled. </a>
+  </noscript>
   <form method="post" target="{{url_for('auth.register_webauthn_user')}}" onsubmit="webauthnCredentialCreate(event)">
     <input type="hidden" id="webauthnRegistrationURL" value="{{url_for('auth.start_webauthn_registration')}}">
     <label for="email">Email</label>

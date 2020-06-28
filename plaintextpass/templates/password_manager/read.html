@@ -5,35 +5,23 @@
 {% endblock %}
 
 {% block content %}
-
-<table>
-  <thead>
-    <tr>
-      <td> Domain </td>
-      <td> Username </td>
-      <td> Password</td>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> {{domain}} </td>
-      <td> {{username}} </td>
-      <td>
-        <input type="text" name="password" id="password" value="{{password}}"> </td>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-    <label> domain
-      <p> {{domain}} </p>
-    </label>
-    <label> username
-      <p> {{username}} </p>
-    </label>
-    <label > password
-      <p> {{password}} </p>
-    </label>
-    <a href="{{url_for('plaintext_passwords.index')}}" >Back to Main Page</a>
-  </form>
+  <table>
+    <thead>
+      <tr>
+        <td> Domain </td>
+        <td> Username </td>
+        <td> Password</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> {{domain}} </td>
+        <td> {{username}} </td>
+        <td>
+          <input type="text" name="password" id="password" value="{{password}}"> </td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a href="{{url_for('plaintext_passwords.index')}}" >Back to Main Page</a>
 {% endblock %}

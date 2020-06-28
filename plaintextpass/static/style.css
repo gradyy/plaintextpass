@@ -1,22 +1,18 @@
 html {
   font-family: Lucida Console, Courier, monospace;
   background: ghostwhite;
-  padding: 1rem;
-  /*border: grey thick dotted;*/
 }
 
 body {
   max-width: 1200px;
   margin: 0 auto;
-  background: white;
-  /*border: grey thick dotted;*/
+  background: ghostwhite;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Lucida Console, Courier, monospace;
   color: darkblue;
   margin: 1rem 0;
-  /*border: grey thick dotted;*/
 }
 
 a {
@@ -24,7 +20,6 @@ a {
   color: steelblue;
   text-decoration: none;
   padding: 0.5rem 0.25rem;
-  /*border: grey thick dotted;*/
 }
 
 nav {
@@ -40,7 +35,6 @@ nav h1 {
   margin: 0.5rem auto;
   font-size: 2.5rem;
   text-align: center;
-  /*border: grey thick dotted;*/
 }
 
 nav ul  {
@@ -55,7 +49,6 @@ nav span {
   padding: 0.3rem;
   font-size: 1rem;
   width: min-content;
-  /*border: grey thick dotted;*/
 }
 
 nav a {
@@ -64,18 +57,15 @@ nav a {
   padding: 1rem;
   background: gainsboro;
   color: darkblue;
-  /*border: grey thick dotted;*/
 }
 
 nav a:hover{
   background: ivory;
   color: darkslateblue;
-  /*border: grey thick dotted;*/
 }
 
 .content {
   padding: 0 1rem 1rem;
-  /*border: grey thick dotted;*/
 }
 
 .content > header {
@@ -88,53 +78,38 @@ nav a:hover{
 .content > header h1 {
   flex: auto;
   margin: 1rem 0 0.25rem 0;
-  /*border: grey thick dotted;*/
 }
 
-.flash {
+.content > h1 {
   text-align: center;
-  margin: 1em 0;
-  padding: 1em;
-  background: floralwhite;
-  border: 1px solid silver;
-  border-radius: 15px;
+  color: dimgrey;
+  margin: 0 auto;
+  border-bottom: 1px solid darkcyan;
+  width: 75%;
+  padding: 0.5rem 0;
 }
 
-.content:last-child {
-  margin-bottom: 10px;
+.content > p {
+  text-align: center;
+  color: navy;
+  margin: 0.5rem auto;
+  display: block;
+  max-width: 75%;
 }
 
 .content form {
-  margin: 1em 0;
+  margin: 1rem 0;
   display: flex;
   flex-direction: column;
 }
 
 .content label {
   font-weight: bold;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-  /*border: grey thick dotted;*/
-}
-
-.content p {
-  font-weight: normal;
-  margin-bottom: inherit;
-  display: inline-block;
-  padding: 0 1rem;
-  /*border: grey thick dotted;*/
-}
-
-.clearfix:after { 
-   content: "."; 
-   visibility: hidden; 
-   display: block; 
-   height: 0; 
-   clear: both;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .content table {
-  /*border: grey thick dotted;*/
   table-layout: auto;
   width: 80%;
   margin: 0 auto;
@@ -142,17 +117,11 @@ nav a:hover{
   border-collapse: collapse;
 }
 
-.content table tr {
+.content table td {
   border: 1px solid black;
 }
 
-.content table td {
-  /*border: grey thick dotted;*/
-  border-radius: 10px;
-  align-self: center;
-}
-
-.content > a{
+.content > a {
   display: block;
   width: 50%;
   text-align: center;
@@ -163,14 +132,22 @@ nav a:hover{
   color: midnightblue;
 }
 
-.content > a:hover{
+.content > a:hover, .content table a:hover{
   background: aliceblue;
   color: darkslateblue;
-  /*border: grey thick dotted;*/
 }
 
-.content label > a{
+.content label > a {
   padding: 0;
+}
+
+.flash {
+  text-align: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: floralwhite;
+  border: 1px solid silver;
+  border-radius: 15px;
 }
 
 input[type=submit], input[type=button] {
